@@ -1,0 +1,22 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+.question {
+    margin-bottom: 10px;
+    display: none;
+}
+
+.result {
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
+#startButton {
+    text-align: center;
+}
