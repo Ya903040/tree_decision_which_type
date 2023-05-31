@@ -529,8 +529,183 @@
 </html>
 -->
 
-<!--
 
+
+<!--
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Programmer Type Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .question {
+      margin-bottom: 10px;
+      display: none;
+    }
+
+    .result {
+      font-weight: bold;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    #startButton {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<h1>Programmer Type Test</h1>
+
+<div id="startButton">
+  <button onclick="startTest()">Start Test</button>
+</div>
+
+<div class="question" id="question1">
+  <p id="q1"></p>
+  <input type="radio" name="q1" value="q1_option1"> <span id="q1_option1"></span>
+  <input type="radio" name="q1" value="q1_option2"> <span id="q1_option2"></span>
+  <button onclick="nextQuestion()">Next</button>
+</div>
+
+<div class="question" id="question2">
+  <p id="q2"></p>
+  <input type="radio" name="q2" value="q2_option1"> <span id="q2_option1"></span>
+  <input type="radio" name="q2" value="q2_option2"> <span id="q2_option2"></span>
+  <button onclick="nextQuestion()">Next</button>
+</div>
+
+<div class="question" id="question3">
+  <p id="q3"></p>
+  <input type="radio" name="q3" value="q3_option1"> <span id="q3_option1"></span>
+  <input type="radio" name="q3" value="q3_option2"> <span id="q3_option2"></span>
+  <button onclick="nextQuestion()">Next</button>
+</div>
+
+<div class="question" id="question4">
+  <p id="q4"></p>
+  <input type="radio" name="q4" value="q4_option1"> <span id="q4_option1"></span>
+  <input type="radio" name="q4" value="q4_option2"> <span id="q4_option2"></span>
+  <button onclick="nextQuestion()">Next</button>
+</div>
+
+<div class="question" id="question5">
+  <p id="q5"></p>
+  <input type="radio" name="q5" value="q5_option1"> <span id="q5_option1"></span>
+  <input type="radio" name="q5" value="q5_option2"> <span id="q5_option2"></span>
+  <button onclick="calculateResult()">Calculate Result</button>
+</div>
+
+<div class="result" id="result"></div>
+
+<script>
+  var currentQuestion = 1;
+
+  // Define the questions and answers
+  var questions = [
+    {
+      question: "Are you more inclined towards frontend or backend development?",
+      option1: "Frontend",
+      option2: "Backend"
+    },
+    {
+      question: "Do you enjoy working with databases and data manipulation?",
+      option1: "Yes",
+      option2: "No"
+    },
+    {
+      question: "Do you have an interest in user interface design and user experience?",
+      option1: "Yes",
+      option2: "No"
+    },
+    {
+      question: "Are you comfortable working with large data sets and conducting data analysis?",
+      option1: "Yes",
+      option2: "No"
+    },
+    {
+      question: "Do you enjoy problem-solving and algorithmic thinking?",
+      option1: "Yes",
+      option2: "No"
+    }
+  ];
+
+  function startTest() {
+    document.getElementById('startButton').style.display = "none";
+    showQuestion(currentQuestion);
+  }
+
+  function showQuestion(questionNumber) {
+    var question = questions[questionNumber - 1];
+    var questionDiv = document.getElementById('question' + questionNumber);
+
+    questionDiv.style.display = "block";
+    document.getElementById('q' + questionNumber).innerHTML = question.question;
+    document.getElementById('q' + questionNumber + '_option1').innerHTML = question.option1;
+    document.getElementById('q' + questionNumber + '_option2').innerHTML = question.option2;
+  }
+
+  function nextQuestion() {
+    currentQuestion++;
+    showQuestion(currentQuestion);
+  }
+
+  function calculateResult() {
+    var resultDiv = document.getElementById('result');
+    var result = "";
+
+    var answer1 = document.querySelector('input[name="q1"]:checked');
+    var answer2 = document.querySelector('input[name="q2"]:checked');
+    var answer3 = document.querySelector('input[name="q3"]:checked');
+    var answer4 = document.querySelector('input[name="q4"]:checked');
+    var answer5 = document.querySelector('input[name="q5"]:checked');
+
+    if (answer1 && answer2 && answer3 && answer4 && answer5) {
+      var developerType = answer1.value;
+      var dataInterest = answer2.value;
+      var designInterest = answer3.value;
+      var largeDataSets = answer4.value;
+      var problemSolving = answer5.value;
+
+      if (developerType === "q1_option1") {
+        if (designInterest === "q3_option1") {
+          result = "You might relate to a Frontend Developer with a focus on UI/UX.";
+        } else {
+          result = "You might relate to a Frontend Developer with a focus on coding and functionality.";
+        }
+      } else {
+        if (dataInterest === "q2_option1" && largeDataSets === "q4_option1") {
+          result = "You might relate to a Data Engineer or Data Scientist.";
+        } else if (dataInterest === "q2_option1" && largeDataSets === "q4_option2") {
+          result = "You might relate to a Backend Developer with a focus on databases and data manipulation.";
+        } else if (problemSolving === "q5_option1") {
+          result = "You might relate to an Algorithm Engineer or Software Engineer.";
+        } else {
+          result = "You might relate to a Backend Developer with a focus on server-side programming and system architecture.";
+        }
+      }
+
+      resultDiv.innerHTML = "<p>" + result + "</p>";
+    }
+  }
+</script>
+</body>
+</html>
+
+
+-->
+
+
+
+
+<!--
 <!DOCTYPE html>
 <html>
 <head>
@@ -703,7 +878,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Programmer Type Test - Decision Tree</title>
+  <title>Programmer Type Test</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -713,229 +888,194 @@
       text-align: center;
     }
 
-    #decisionTree {
-      margin: 20px auto;
-      width: 800px;
-      height: 600px;
+    .question {
+      margin-bottom: 10px;
+      display: none;
     }
 
-    #buttons {
+    .result {
+      font-weight: bold;
       text-align: center;
       margin-top: 20px;
     }
 
-    #buttons button {
-      margin: 0 10px;
-      padding: 10px 20px;
+    #startButton {
+      text-align: center;
+    }
+
+    #tree {
+      font-family: monospace;
+      white-space: pre;
+      margin-bottom: 10px;
     }
   </style>
-  <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 <body>
-<h1>Programmer Type Test - Decision Tree</h1>
+<h1>Programmer Type Test</h1>
 
-<div id="decisionTree"></div>
-
-<div id="buttons">
-  <button onclick="previous()">Previous</button>
-  <button onclick="next()">Next</button>
+<div id="startButton">
+  <button onclick="startTest()">Start Test</button>
 </div>
 
+<div class="question" id="question1">
+  <p id="q1"></p>
+  <input type="radio" name="q1" value="q1_option1"> <span id="q1_option1"></span>
+  <input type="radio" name="q1" value="q1_option2"> <span id="q1_option2"></span>
+  <button onclick="nextQuestion()">Next</button>
+</div>
+
+<div class="question" id="question2">
+  <p id="q2"></p>
+  <input type="radio" name="q2" value="q2_option1"> <span id="q2_option1"></span>
+  <input type="radio" name="q2" value="q2_option2"> <span id="q2_option2"></span>
+  <button onclick="nextQuestion()">Next</button>
+</div>
+
+<div class="question" id="question3">
+  <p id="q3"></p>
+  <input type="radio" name="q3" value="q3_option1"> <span id="q3_option1"></span>
+  <input type="radio" name="q3" value="q3_option2"> <span id="q3_option2"></span>
+  <button onclick="nextQuestion()">Next</button>
+</div>
+
+<div class="question" id="question4">
+  <p id="q4"></p>
+  <input type="radio" name="q4" value="q4_option1"> <span id="q4_option1"></span>
+  <input type="radio" name="q4" value="q4_option2"> <span id="q4_option2"></span>
+  <button onclick="nextQuestion()">Next</button>
+</div>
+
+<div class="question" id="question5">
+  <p id="q5"></p>
+  <input type="radio" name="q5" value="q5_option1"> <span id="q5_option1"></span>
+  <input type="radio" name="q5" value="q5_option2"> <span id="q5_option2"></span>
+  <button onclick="calculateResult()">Calculate Result</button>
+</div>
+
+<div class="result" id="result"></div>
+
+<pre id="tree"></pre>
+
 <script>
-  var decisionTreeData = {
-    question: "Are you more inclined towards frontend or backend development?",
-    answers: [
-      {
-        answer: "Frontend",
-        question: "Do you have an interest in user interface design and user experience?",
-        answers: [
-          {
-            answer: "Yes",
-            result: "You might relate to a Frontend Developer with a focus on UI/UX."
-          },
-          {
-            answer: "No",
-            result: "You might relate to a Frontend Developer with a focus on coding and functionality."
-          }
-        ]
-      },
-      {
-        answer: "Backend",
-        question: "Do you enjoy working with databases and data manipulation?",
-        answers: [
-          {
-            answer: "Yes",
-            question: "Are you comfortable working with large data sets and conducting data analysis?",
-            answers: [
-              {
-                answer: "Yes",
-                result: "You might relate to a Data Engineer or Data Scientist."
-              },
-              {
-                answer: "No",
-                result: "You might relate to a Backend Developer with a focus on databases and data manipulation."
-              }
-            ]
-          },
-          {
-            answer: "No",
-            question: "Do you enjoy problem-solving and algorithmic thinking?",
-            answers: [
-              {
-                answer: "Yes",
-                result: "You might relate to an Algorithm Engineer or Software Engineer."
-              },
-              {
-                answer: "No",
-                result: "You might relate to a Backend Developer with a focus on server-side programming and system architecture."
-              }
-            ]
-          }
-        ]
+  var currentQuestion = 1;
+  var tree = "";
+
+  // Define the questions and answers
+  var questions = [
+    {
+      question: "Are you more inclined towards frontend or backend development?",
+      option1: "Frontend",
+      option2: "Backend",
+      treeBranch: ""
+    },
+    {
+      question: "Do you enjoy working with databases and data manipulation?",
+      option1: "Yes",
+      option2: "No",
+      treeBranch: ""
+    },
+    {
+      question: "Do you have an interest in user interface design and user experience?",
+      option1: "Yes",
+      option2: "No",
+      treeBranch: ""
+    },
+    {
+      question: "Are you comfortable working with large data sets and conducting data analysis?",
+      option1: "Yes",
+      option2: "No",
+      treeBranch: ""
+    },
+    {
+      question: "Do you enjoy problem-solving and algorithmic thinking?",
+      option1: "Yes",
+      option2: "No",
+      treeBranch: ""
+    }
+  ];
+
+  function startTest() {
+    document.getElementById('startButton').style.display = "none";
+    showQuestion(currentQuestion);
+  }
+
+  function showQuestion(questionNumber) {
+    var question = questions[questionNumber - 1];
+    var questionDiv = document.getElementById('question' + questionNumber);
+
+    questionDiv.style.display = "block";
+    document.getElementById('q' + questionNumber).innerHTML = question.question;
+    document.getElementById('q' + questionNumber + '_option1').innerHTML = question.option1;
+    document.getElementById('q' + questionNumber + '_option2').innerHTML = question.option2;
+    document.getElementById('tree').innerHTML = tree;
+  }
+
+  function nextQuestion() {
+    currentQuestion++;
+    showQuestion(currentQuestion);
+  }
+
+  function calculateResult() {
+    var resultDiv = document.getElementById('result');
+    var result = "";
+
+    var answer1 = document.querySelector('input[name="q1"]:checked');
+    var answer2 = document.querySelector('input[name="q2"]:checked');
+    var answer3 = document.querySelector('input[name="q3"]:checked');
+    var answer4 = document.querySelector('input[name="q4"]:checked');
+    var answer5 = document.querySelector('input[name="q5"]:checked');
+
+    if (answer1 && answer2 && answer3 && answer4 && answer5) {
+      var developerType = answer1.value;
+      var dataInterest = answer2.value;
+      var designInterest = answer3.value;
+      var largeDataSets = answer4.value;
+      var problemSolving = answer5.value;
+
+      if (developerType === "q1_option1") {
+        if (designInterest === "q3_option1") {
+          result = "You might relate to a Frontend Developer with a focus on UI/UX.";
+          questions[0].treeBranch = "└─ Frontend Developer (UI/UX)\n";
+        } else {
+          result = "You might relate to a Frontend Developer with a focus on coding and functionality.";
+          questions[0].treeBranch = "└─ Frontend Developer (Coding)\n";
+        }
+      } else {
+        if (dataInterest === "q2_option1" && largeDataSets === "q4_option1") {
+          result = "You might relate to a Data Engineer or Data Scientist.";
+          questions[0].treeBranch = "└─ Data Engineer / Data Scientist\n";
+        } else if (dataInterest === "q2_option1" && largeDataSets === "q4_option2") {
+          result = "You might relate to a Backend Developer with a focus on databases and data manipulation.";
+          questions[0].treeBranch = "└─ Backend Developer (Database)\n";
+        } else if (problemSolving === "q5_option1") {
+          result = "You might relate to an Algorithm Engineer or Software Engineer.";
+          questions[0].treeBranch = "└─ Backend Developer\n";
+          questions[1].treeBranch = "  └─ Algorithm Engineer / Software Engineer\n";
+        } else {
+          result = "You might relate to a Backend Developer with a focus on server-side programming and system architecture.";
+          questions[0].treeBranch = "└─ Backend Developer\n";
+        }
       }
-    ]
-  };
 
-  var currentData = decisionTreeData;
+      resultDiv.innerHTML = "<p>" + result + "</p>";
 
-  function createDecisionTree(data, containerId) {
-    var margin = { top: 20, right: 90, bottom: 30, left: 90 },
-            width = 800 - margin.left - margin.right,
-            height = 600 - margin.top - margin.bottom;
-
-    var i = 0,
-            duration = 750,
-            root;
-
-    var tree = d3.tree().size([height, width]);
-
-    var svg = d3.select("#" + containerId)
-            .append("svg")
-            .attr("width", width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom)
-            .append("g")
-            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-    root = d3.hierarchy(data, function(d) { return d.answers; });
-    root.x0 = height / 2;
-    root.y0 = 0;
-
-    update(root);
-
-    function update(source) {
-      var treeData = tree(root);
-
-      var nodes = treeData.descendants(),
-              links = treeData.descendants().slice(1);
-
-      nodes.forEach(function(d) { d.y = d.depth * 180; });
-
-      var node = svg.selectAll("g.node")
-              .data(nodes, function(d) { return d.id || (d.id = ++i); });
-
-      var nodeEnter = node.enter().append("g")
-              .attr("class", "node")
-              .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; })
-              .on("click", click);
-
-      nodeEnter.append("circle")
-              .attr("r", 10)
-              .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
-
-      nodeEnter.append("text")
-              .attr("dy", ".35em")
-              .attr("x", function(d) { return d.children || d._children ? -13 : 13; })
-              .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
-              .text(function(d) { return d.data.question || d.data.result; })
-              .style("fill-opacity", 0);
-
-      var nodeUpdate = nodeEnter.merge(node);
-
-      nodeUpdate.transition()
-              .duration(duration)
-              .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
-
-      nodeUpdate.select("circle")
-              .attr("r", 10)
-              .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
-
-      nodeUpdate.select("text")
-              .style("fill-opacity", 1);
-
-      var nodeExit = node.exit().transition()
-              .duration(duration)
-              .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
-              .remove();
-
-      nodeExit.select("circle")
-              .attr("r", 10);
-
-      nodeExit.select("text")
-              .style("fill-opacity", 0);
-
-      var link = svg.selectAll("path.link")
-              .data(links, function(d) { return d.id; });
-
-      link.enter().insert("path", "g")
-              .attr("class", "link")
-              .attr("d", function(d) {
-                var o = { x: source.x0, y: source.y0 };
-                return diagonal(o, o);
-              });
-
-      link.transition()
-              .duration(duration)
-              .attr("d", function(d) { return diagonal(d, d.parent); });
-
-      link.exit().transition()
-              .duration(duration)
-              .attr("d", function(d) {
-                var o = { x: source.x, y: source.y };
-                return diagonal(o, o);
-              })
-              .remove();
-
-      nodes.forEach(function(d) {
-        d.x0 = d.x;
-        d.y0 = d.y;
-      });
+      tree = generateTree();
+      document.getElementById('tree').innerHTML = tree;
     }
+  }
 
-    function click(d) {
-      if (d.children) {
-        d._children = d.children;
-        d.children = null;
-      } else if (d.data.answers) {
-        d.children = d.data.answers;
-        d._children = null;
+  function generateTree() {
+    var tree = "";
+
+    for (var i = 0; i < questions.length; i++) {
+      if (questions[i].treeBranch) {
+        tree += questions[i].treeBranch;
       }
-      update(d);
     }
 
-    function diagonal(s, d) {
-      var path = `M ${s.y} ${s.x}
-                            C ${(s.y + d.y) / 2} ${s.x},
-                              ${(s.y + d.y) / 2} ${d.x},
-                              ${d.y} ${d.x}`;
-      return path;
-    }
+    return tree;
   }
-
-  function next() {
-    if (currentData && currentData.answers) {
-      currentData = currentData.answers[0];
-      createDecisionTree(currentData, "decisionTree");
-    }
-  }
-
-  function previous() {
-    if (currentData && currentData.parent) {
-      currentData = currentData.parent.data;
-      createDecisionTree(currentData, "decisionTree");
-    }
-  }
-
-  createDecisionTree(decisionTreeData, "decisionTree");
 </script>
 </body>
 </html>
+
