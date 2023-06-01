@@ -1,53 +1,16 @@
-@import url("https://fonts.googleapis.com/css?family=Open+Sans");
-body {
-    font-family: "open sans", serif;
+body{
     text-align: center;
 
 }
 
-#tree li {
-    display: block;
-    border: 1px solid gray;
-    padding: 1em;
-    cursor: pointer;
-    margin-bottom: 0.5em;
-}
-#tree li:hover {
-    background-color: #fafafa;
-}
-#tree ul ul {
-    display: none;
-}
-#tree h3, #tree h4 {
-    margin: 0;
-    padding: 1em;
+.iframe{
+    border: 1px solid black;
 }
 
-.back {
-    border-radius: 100px;
-    background-color: gray;
-    color: white;
-    text-transform: uppercase;
-    font-size: 0.75em;
-    padding: 0.5em;
+.text{
+    font-size: 2rem;
+    color: blue;
 }
-
-.selectedAnswer > ul {
-    display: block !important;
-}
-.notSelected {
-    display: none !important;
-    opacity: 0.5;
-}
-
-.show {
-    display: block !important;
-}
-
-.hidden {
-    display: none !important;
-}
-
-.invisible {
-    visibility: hidden;
+a{
+    text-decoration: none;
 }
